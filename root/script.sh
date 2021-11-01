@@ -6,15 +6,14 @@
 touch foo.json
 echo '{"description":"foo"}' > foo.json
 
-m=4
+m=5
 n=1
 
-# time task sync
-# Sync successful.  10000 changes downloaded.
+# Sync successful.  100000 changes downloaded.
 
-# real    0m8.013s
-# user    0m7.527s
-# sys     0m0.104s
+# real    15m2.319s
+# user    14m58.700s
+# sys     0m1.253s
 
 for _ in $(seq 1 $m); do
     touch foo.json.tmp
