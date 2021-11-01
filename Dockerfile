@@ -45,6 +45,11 @@ RUN systemctl start taskd.service && sleep 3 && task sync
 
 RUN rm ~/.task/*.data
 
+RUN task rc.confirmation:no config confirmation no
+RUN task config debug.hooks 1
+RUN task config debug.parser 1
+RUN task config debug.tls 2
+RUN task config debug on
 # RUN taskd config request.limit 10485760
 
 # RUN systemctl start taskd.service && sleep 3 && task sync
