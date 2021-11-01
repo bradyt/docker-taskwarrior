@@ -32,7 +32,7 @@ ENV TASKDDATA /root/opt/var/taskd
 
 RUN apt-get install systemctl
 
-# RUN taskd config request.limit 0
+RUN taskd config request.limit 0
 
 RUN cp /root/taskd.service /etc/systemd/system
 
