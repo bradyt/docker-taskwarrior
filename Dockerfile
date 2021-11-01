@@ -41,6 +41,12 @@ RUN cp /root/taskd.service /etc/systemd/system
 
 WORKDIR /root
 
-# RUN sh script.sh
+RUN sh script.sh
 
-# CMD systemctl start taskd.service && sleep 3 && task sync
+RUN systemctl start taskd.service && sleep 3 && task sync
+
+RUN rm ~/.task/*.data
+
+# RUN taskd config request.limit 10485760
+
+# RUN systemctl start taskd.service && sleep 3 && task sync
