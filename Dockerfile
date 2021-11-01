@@ -14,9 +14,9 @@ RUN apt-get update && apt-get install -y \
     uuid-dev \
     vim
 
-RUN curl -O https://taskwarrior.org/download/task-2.5.3.tar.gz
-RUN tar xzvf task-2.5.3.tar.gz
-WORKDIR task-2.5.3
+RUN curl -O https://taskwarrior.org/download/task-2.6.1.tar.gz
+RUN tar xzvf task-2.6.1.tar.gz
+WORKDIR task-2.6.1
 RUN cmake -DCMAKE_BUILD_TYPE=release .
 RUN make
 RUN make install
@@ -30,10 +30,15 @@ RUN make
 RUN make install
 WORKDIR ..
 
+ADD /root /root
 ENV TASKDDATA /root/opt/var/taskd
 
-RUN task rc.confirmation:no config confirmation no
-
-ADD /root /root
-
 WORKDIR /root
+
+RUN task add foo\\
+
+RUN taskdctl start && sleep 3 && task sync
+
+RUN rm ~/.task/*.data
+
+RUN taskdctl start && sleep 3 && task sync
