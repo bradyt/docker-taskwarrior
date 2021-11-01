@@ -4,10 +4,13 @@ RUN apt-get update && apt-get install -y \
     asciinema \
     cmake \
     curl \
+    entr \
     faketime \
     g++ \
     gnutls-bin \
     libgnutls28-dev \
+    systemctl \
+    tmux \
     uuid-dev \
     vim
 
