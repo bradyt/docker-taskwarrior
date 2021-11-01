@@ -30,8 +30,6 @@ RUN make
 RUN make install
 WORKDIR ..
 
-RUN apt-get install systemctl
-
 ADD /root /root
 ENV TASKDDATA /root/opt/var/taskd
 
