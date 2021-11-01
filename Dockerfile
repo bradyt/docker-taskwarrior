@@ -30,26 +30,10 @@ RUN make
 RUN make install
 WORKDIR ..
 
-ADD /root /root
 ENV TASKDDATA /root/opt/var/taskd
 
-RUN taskd config request.limit 0
+RUN task rc.confirmation:no config confirmation no
 
-RUN cp /root/taskd.service /etc/systemd/system
+ADD /root /root
 
 WORKDIR /root
-
-RUN sh script.sh
-
-RUN systemctl start taskd.service && sleep 3 && task sync
-
-RUN rm ~/.task/*.data
-
-RUN task rc.confirmation:no config confirmation no
-RUN task config debug.hooks 1
-RUN task config debug.parser 1
-RUN task config debug.tls 2
-RUN task config debug on
-# RUN taskd config request.limit 10485760
-
-# RUN systemctl start taskd.service && sleep 3 && task sync
