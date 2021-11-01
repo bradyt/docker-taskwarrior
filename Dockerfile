@@ -27,10 +27,10 @@ RUN make
 RUN make install
 WORKDIR ..
 
+RUN apt-get install systemctl
+
 ADD /root /root
 ENV TASKDDATA /root/opt/var/taskd
-
-RUN apt-get install systemctl
 
 RUN taskd config request.limit 0
 
@@ -38,6 +38,6 @@ RUN cp /root/taskd.service /etc/systemd/system
 
 WORKDIR /root
 
-RUN sh script_2.sh
+# RUN sh script.sh
 
-CMD systemctl start taskd.service && sleep 3 && task sync
+# CMD systemctl start taskd.service && sleep 3 && task sync
