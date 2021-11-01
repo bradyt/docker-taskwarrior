@@ -1,0 +1,7 @@
+taskd.server       = localhost:53589
+taskd.credentials  = PUBLIC/First Last/ece66575-4238-4fa4-81cc-aa99f28a61d0
+taskd.certificate  = ~/.task/First_Last.cert.pem
+taskd.key          = ~/.task/First_Last.key.pem
+taskd.ca           = ~/.task/ca.cert.pem
+taskd.trust        = strict
+taskd.ciphers      = NORMAL
