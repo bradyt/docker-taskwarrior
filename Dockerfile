@@ -14,9 +14,9 @@ RUN apt-get update && apt-get install -y \
     uuid-dev \
     vim
 
-RUN curl -O https://taskwarrior.org/download/task-2.6.1.tar.gz
-RUN tar xzvf task-2.6.1.tar.gz
-WORKDIR task-2.6.1
+RUN curl -O https://taskwarrior.org/download/task-2.5.3.tar.gz
+RUN tar xzvf task-2.5.3.tar.gz
+WORKDIR task-2.5.3
 RUN cmake -DCMAKE_BUILD_TYPE=release .
 RUN make
 RUN make install
