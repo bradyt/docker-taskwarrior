@@ -32,8 +32,12 @@ ENV TASKDDATA /root/opt/var/taskd
 
 RUN apt-get install systemctl
 
+# RUN taskd config request.limit 0
+
 RUN cp /root/taskd.service /etc/systemd/system
 
 WORKDIR /root
 
-CMD systemctl start taskd.service && bash
+RUN sh script_2.sh
+
+CMD systemctl start taskd.service && sleep 3 && task sync
