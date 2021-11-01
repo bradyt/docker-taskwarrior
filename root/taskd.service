@@ -1,0 +1,14 @@
+[Unit]
+Description=Secure server providing multi-user, multi-client access to task data
+After=network.target
+Documentation=http://taskwarrior.org/docs/
+
+[Service]
+ExecStart=/usr/local/bin/taskd server --data /root/opt/var/taskd
+Restart=on-abort
+Type=simple
+User=root
+Group=root
+
+[Install]
+WantedBy=multi-user.target

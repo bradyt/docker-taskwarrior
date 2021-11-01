@@ -30,4 +30,10 @@ WORKDIR ..
 ADD /root /root
 ENV TASKDDATA /root/opt/var/taskd
 
+RUN apt-get install systemctl
+
+RUN cp /root/taskd.service /etc/systemd/system
+
 WORKDIR /root
+
+CMD systemctl start taskd.service && bash
